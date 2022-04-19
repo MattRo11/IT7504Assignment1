@@ -26,52 +26,74 @@ namespace IT7504Assignment1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            calcDisplay.Text += "1";
+            calcDisplay.Text = "";
+            userInput += "1";
+            calcDisplay.Text += userInput;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            calcDisplay.Text += "2";
+            calcDisplay.Text = "";
+            userInput += "2";
+            calcDisplay.Text += userInput;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            calcDisplay.Text += "3";
+            calcDisplay.Text = "";
+            userInput += "3";
+            calcDisplay.Text += userInput;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            calcDisplay.Text += "4";
+            calcDisplay.Text = "";
+            userInput += "4";
+            calcDisplay.Text += userInput;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            calcDisplay.Text += "5";
+            calcDisplay.Text = "";
+            userInput += "5";
+            calcDisplay.Text += userInput;
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            calcDisplay.Text += "6";
+            calcDisplay.Text = "";
+            userInput += "6";
+            calcDisplay.Text += userInput;
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            calcDisplay.Text += "7";
+            calcDisplay.Text = "";
+            userInput += "7";
+            calcDisplay.Text += userInput;
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            calcDisplay.Text += "8";
+            calcDisplay.Text = "";
+            userInput += "8";
+            calcDisplay.Text += userInput;
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            calcDisplay.Text += "9";
+            calcDisplay.Text = "";
+            userInput += "9";
+            calcDisplay.Text += userInput;
         }
 
         private void clearButton_Click(object sender, EventArgs e)
         {
-            function = 'c';
+            first = "";
+            second = "";
+            userInput = "";
+            result = 0.0;
+            calcDisplay.Text = "0";
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -82,36 +104,85 @@ namespace IT7504Assignment1
         private void divideButton_Click(object sender, EventArgs e)
         {
             function = '/';
+            first = userInput;
+            userInput = "";
         }
 
         private void timesButton_Click(object sender, EventArgs e)
         {
-            function = '*';
+            function = 'x';
+            first = userInput;
+            userInput = "";
         }
 
         private void plusButton_Click(object sender, EventArgs e)
         {
             function = '+';
+            first = userInput;
+            userInput = "";
         }
 
         private void minusButton_Click(object sender, EventArgs e)
         {
             function = '-';
+            first = userInput;
+            userInput = "";
         }
 
         private void equalsButton_Click(object sender, EventArgs e)
         {
-            function = '=';
+            second = userInput;
+            double firstNum, secondNum;
+            firstNum = Convert.ToDouble(first);
+            secondNum = Convert.ToDouble(second);
+
+            //plus
+            if (function == '+')
+            {
+                result = firstNum + secondNum;
+                calcDisplay.Text = result.ToString();
+            }
+
+            //minus
+            else if (function == '-')
+            {
+                result = firstNum - secondNum;
+                calcDisplay.Text = result.ToString();
+            }
+
+            //divide
+            else if (function == '/')
+            {
+                if(secondNum == '0')
+                {
+                    calcDisplay.Text = "N/A";
+                }
+                else
+                {
+                    result = firstNum / secondNum;
+                    calcDisplay.Text = result.ToString();
+                }
+            }
+
+            //multiply
+            else if (function == 'x')
+            {
+                result = firstNum * secondNum;
+                calcDisplay.Text = result.ToString();
+            }
         }
 
         private void decimalButton_Click(object sender, EventArgs e)
         {
+            calcDisplay.Text = "";
             calcDisplay.Text += ".";
         }
 
         private void zeroButton_Click(object sender, EventArgs e)
         {
-            calcDisplay.Text += "0";
+            calcDisplay.Text = "";
+            userInput += "0";
+            calcDisplay.Text += userInput;
         }
     }
 }
